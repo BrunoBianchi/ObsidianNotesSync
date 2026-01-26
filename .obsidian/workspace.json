@@ -1,0 +1,216 @@
+{
+  "main": {
+    "id": "47477b0e2639e72c",
+    "type": "split",
+    "children": [
+      {
+        "id": "b1086104dcb78943",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2e964d6b43de7c40",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Curso.dev/Aula 06.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Aula 06"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "1df008e906d6ad04",
+    "type": "split",
+    "children": [
+      {
+        "id": "4ef343145b21f539",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fd3483e732f17ad8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Explorador de arquivos"
+            }
+          },
+          {
+            "id": "eadc15905851a97b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "4ad3f9b8790fad6b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "a02617f9765a4394",
+    "type": "split",
+    "children": [
+      {
+        "id": "8d390a3ccfe3b282",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0efeb4cd97d6d435",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Telecom/files/Pasted image 20251202151140.png",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Pasted image 20251202151140"
+            }
+          },
+          {
+            "id": "ac6ef0ccba559d89",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Inteligência Artificial/Aula 01.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Aula 01"
+            }
+          },
+          {
+            "id": "b19ff6a1771880c5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "4c37a06cf03bdf50",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Inteligência Artificial/Aula 01.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Aula 01"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Abrir a troca rápida": false,
+      "graph:Abrir visualização em gráfico": false,
+      "canvas:Criar novo canvas": false,
+      "daily-notes:Abrir a nota de hoje": false,
+      "templates:Inserir modelo": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Criar nova base": false,
+      "obsidian-excalidraw-plugin:New drawing": false,
+      "obsidian-to-notion:Share to notion": false,
+      "github-sync:Sync with Remote": false
+    }
+  },
+  "active": "2e964d6b43de7c40",
+  "lastOpenFiles": [
+    "teste.md",
+    "Curso.dev/Aula 06.md",
+    "Curso.dev",
+    "Telecom/files/Pasted image 20251202151140.png",
+    "Telecom/Resumo.md",
+    "Telecom/files/Pasted image 20251203190324.png",
+    "Telecom/files/Pasted image 20251203190028.png",
+    "Telecom/files/Pasted image 20251203190018.png",
+    "Telecom/files/Pasted image 20251203185701.png",
+    "Telecom/files/Pasted image 20251203185619.png",
+    "Telecom/files/Pasted image 20251203184738.png",
+    "Telecom/files/Pasted image 20251203182639.png",
+    "Telecom/files/Pasted image 20251203180436.png",
+    "Telecom/files/Pasted image 20251203180153.png",
+    "2025-12-03.md",
+    "Untitled.canvas",
+    "Excalidraw/Drawing 2025-12-02 17.14.49.excalidraw.md",
+    "Excalidraw",
+    "Telecom/files",
+    "Telecom",
+    "IA/Resumo.md",
+    "IA/files",
+    "Micro/Sub rotinas.md",
+    "IA",
+    "Micro/Timers&Counters.md",
+    "Micro/Dispositivos Periféricos.md",
+    "Micro/files",
+    "Inteligência Artificial/Aula 01.md",
+    "Micro",
+    "Excalidraw/Drawing 2025-03-25 17.25.20.excalidraw.md",
+    "Inteligência Artificial",
+    "Excalidraw/Drawing 2025-03-19 14.43.22.excalidraw.md",
+    "Excalidraw/Drawing 2025-03-11 18.16.02.excalidraw.md",
+    "MicroProcessadores/Aula 02.md",
+    "MicroProcessadores",
+    "Excalidraw/Drawing 2025-04-28 13.58.31.excalidraw.md",
+    "Excalidraw/Drawing 2025-03-25 17.08.55.excalidraw.md",
+    "Excalidraw/Drawing 2025-03-19 12.29.48.excalidraw.md"
+  ]
+}
