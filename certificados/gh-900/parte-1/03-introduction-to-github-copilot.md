@@ -1,91 +1,285 @@
 # Introduction to GitHub Copilot
 
-## 📚 Pesquisa e Síntese
+**Tags:** #copilot #ai #vs-code #github-copilot #gh-900 #certificação #ai-assistant
+
+---
+
+## 📚 Conceitos Fundamentais e Pesquisa
 
 ### O que é GitHub Copilot?
-GitHub Copilot é um assistente de programação com IA (Artificial Intelligence) que fornece sugestões de código em tempo real enquanto você digita. Desenvolvido pela GitHub em parceira com a OpenAI, utiliza o modelo de linguagem Codex para entender o contexto do seu código e gerar sugestões relevantes.
 
-### O que é cobrado no exame GH-900 sobre GitHub Copilot?
+**GitHub Copilot** é um assistente de programação com **Inteligência Artificial** que fornece sugestões de código em tempo real enquanto você digita. Desenvolvido pela GitHub em parceira com a **OpenAI**, utiliza modelos de linguagem de última geração para entender o contexto do seu código e gerar sugestões relevantes.
 
-O exame foca nos fundamentos do Copilot, sua integração com ambientes de desenvolvimento e os planos de subscrição. Os principais tópicos são:
+**História e Versões:**
+- **2021**: Lançamento inicial (GPT-3 based)
+- **2023**: Copilot X (GPT-4 based) - Mais potente e preciso
+- **2024**: Copilot Chat - Capacidade de conversa e geração de código
+- **2025**: Copilot Workspace - Contexto completo de repositório
+
+### Como o Copilot Funciona
+
+#### 1. Tecnologias por Trás do Copilot
+
+| Tecnologia | Descrição | Versão |
+|------------|-----------|---------|
+| **OpenAI Codex** | Modelo de linguagem especializado em código | GPT-4 (atual) |
+| **GPT-4** | Modelo de linguagem de última geração | Turbo, Standard |
+| **Context Awareness** | Análise de código, comentários e arquivos relacionados | Multi-arquivo |
+| **Fine-tuning** | Treinamento específico em código de GitHub | Milhões de repositórios |
+
+#### 2. Context Awareness (Consciência de Contexto)
+
+O Copilot analisa múltiplos fontes de contexto para gerar sugestões precisas:
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                 COPULOT CONTEXT                     │
+├─────────────────────────────────────────────────────────┤
+│ 1. Arquivo atual (código sendo editado)             │
+│ 2. Outras abas abertas no editor                    │
+│ 3. Comentários e documentação                     │
+│ 4. Nome da função e parâmetros                     │
+│ 5. Tipos de dados e estruturas                      │
+│ 6. Histórico recente de edição                      │
+│ 7. Repositório inteiro (com Copilot Workspace)       │
+└─────────────────────────────────────────────────────────┘
+```
+
+**Exemplo de Contexto:**
+
+```python
+# Contexto analisado pelo Copilot:
+
+def calculate_total_price(items):
+    """
+    Calcula o preço total de uma lista de itens.
+    Cada item é um dicionário com 'price' e 'quantity'.
+    """
+    # O Copilot sabe:
+    # - Nome da função: calculate_total_price
+    # - Parâmetros: items (lista)
+    # - Docstring: itens têm 'price' e 'quantity'
+    # - Contexto geral: código Python, cálculo matemático
+    
+    # Sugestão gerada:
+    total = 0
+    for item in items:
+        total += item['price'] * item['quantity']
+    return total
+```
+
+#### 3. Tipos de Sugestões
+
+**Inline Suggestions (Sugestões na Linha):**
+
+```javascript
+function calculateArea(width, height) {
+    // O Copilot sugerirá automaticamente:
+    return width * height;
+}
+```
+
+- **Aparecem:** Enquanto você digita (texto cinza)
+- **Aceitar:** Pressione **Tab**
+- **Rejeitar:** Pressione **Esc**
+- **Ver múltiplas:** Pressione **Ctrl/Cmd + Enter**
+
+**Function Completion (Completação de Funções):**
+
+```python
+def sort_array(arr):
+    """
+    Ordena um array em ordem crescente.
+    Usa o algoritmo quicksort para melhor performance.
+    """
+    # Copilot pode sugerir a função inteira:
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    
+    return sort_array(left) + middle + sort_array(right)
+```
+
+**Multi-line Completions:**
+
+```java
+public class UserService {
+    private UserRepository userRepository;
+    
+    // Copilot pode sugerir múltiplas linhas:
+    public User findById(Long id) {
+        return userRepository.findById(id)
+            .orElseThrow(() -> new UserNotFoundException(id));
+    }
+    
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
+    
+    public User updateUser(Long id, User userDetails) {
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new UserNotFoundException(id));
+        
+        user.setName(userDetails.getName());
+        user.setEmail(userDetails.getEmail());
+        
+        return userRepository.save(user);
+    }
+    
+    public void deleteUser(Long id) {
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new UserNotFoundException(id));
+        
+        userRepository.delete(user);
+    }
+}
+```
+
+### Funcionalidades do Copilot
+
+#### 1. Copilot Inline (Editor)
+
+| Funcionalidade | Descrição |
+|---------------|-----------|
+| **Auto-sugestões** | Sugestões aparecem automaticamente ao digitar |
+| **Múltiplas opções** | Ver até 3 sugestões alternativas |
+| **Múltiplas linguagens** | Suporta 20+ linguagens de programação |
+| **Framework support** | Funciona com React, Vue, Angular, Django, Flask, etc. |
+| **Atalhos** | Tab (aceitar), Esc (rejeitar), Ctrl+Enter (múltiplas) |
+
+#### 2. Copilot Chat (Conversa)
+
+| Funcionalidade | Descrição |
+|---------------|-----------|
+| **Explicar código** | Pergunte "o que faz esta função?" |
+| **Gerar código** | "Gere uma função que valide emails" |
+| **Debuggar código** | "Encontrar erros neste código" |
+| **Refatorar** | "Refatorar este código para ser mais legível" |
+| **Adicionar testes** | "Escreva testes unitários para este código" |
+| **Traduzir código** | "Converta este código de Python para JavaScript" |
+
+#### 3. Copilot Workspace
+
+| Funcionalidade | Descrição |
+|---------------|-----------|
+| **Contexto de repositório** | Analisa TODO o repositório |
+| **Sugestões inteligentes** | Baseadas em todo o código, não apenas arquivo atual |
+| **Melhor consistência** | Mantém estilo e padrões do projeto |
+| **Disponível em planos pagos** | Pro, Business, Enterprise |
+
+#### 4. Copilot CLI
+
+| Funcionalidade | Descrição |
+|---------------|-----------|
+| **Interface de linha de comando** | Perguntas sobre código no terminal |
+| **Geração de comandos** | `gh copilot suggest` |
+| **Explicar comandos** | `gh copilot explain git push` |
+| **Automação de scripts** | Integrar com scripts e automações |
+
+---
+
+## 📋 O que é Cobrado no Exame GH-900
+
+### Tópicos Principais
 
 1. **Integração com VS Code e IDEs**
    - Instalar a extensão do GitHub Copilot
    - Configurar autenticação no VS Code
    - Ativar/desativar Copilot no editor
    - Atalhos de teclado padrão
+   - Outras IDEs: JetBrains, Visual Studio, Neovim, Vim
 
 2. **Sugestões de Código (Inline Suggestions)**
    - Sugestões automáticas ao digitar
    - Aceitar/Rejeitar sugestões (Tab, Esc)
    - Ver múltiplas sugestões (Ctrl/Cmd + Enter)
    - Context-aware completions
+   - Multi-line completions
 
 3. **Chat do Copilot (Copilot Chat)**
    - Fazer perguntas sobre código
    - Explicar funções e arquivos
    - Sugerir melhorias de código
    - Gerar código a partir de descrições
+   - Adicionar testes e documentação
 
 4. **Planos de Subscrição**
    - Copilot Free (grátis, limitado)
    - Copilot Pro (individual, recursos avançados)
    - Copilot Business/Enterprise (empresarial, recursos corporativos)
    - Diferenças de recursos e limites
+   - Preços e limites de uso
 
 5. **Funcionalidades Adicionais**
    - Copilot Workspace (contexto do repositório)
    - Copilot CLI (interface de linha de comando)
    - Copilot no GitHub Mobile
    - Copilot em Codespaces
-
-### Tecnologias por Trás do Copilot
-
-| Tecnologia | Descrição |
-|------------|-----------|
-| **OpenAI Codex** | Modelo de linguagem baseado em GPT-4, fine-tuned para código |
-| **Context Awareness** | Copilot analisa seu código, comentários e arquivos relacionados |
-| **Multi-language Support** | Suporta Python, JavaScript, TypeScript, Ruby, Go, C#, C++, e mais |
-| **Framework Support** | Funciona com React, Vue, Angular, Django, Flask, etc. |
+   - Copilot Extensions e plugins
 
 ---
 
-## 💻 Cenário Prático (Mão na Massa)
+## 💻 Cenários Práticos (Mão na Massa)
 
-### Exercício 1: Instalando e Configurando Copilot no VS Code
+### Exercício 1: Instalar e Configurar Copilot no VS Code
 
 **Via VS Code:**
 
-1. Abra o **Visual Studio Code**
-2. Vá para a aba de **Extensions** (ícone de quadrados no sidebar esquerdo)
-3. Digite `GitHub Copilot` na barra de busca
-4. Encontre a extensão oficial "GitHub Copilot" (pela GitHub)
-5. Clique em **Install**
-6. Após a instalação, clique no ícone do Copilot na barra de status (canto inferior direito)
-7. Selecione **Sign in to GitHub**
-8. Copilot abrirá uma janela de autenticação em seu navegador
-9. Acesse sua conta do GitHub
-10. Copile um plano (Free, Pro, ou Business)
-11. Retorne ao VS Code - Copilot deve estar ativo
+1. **Abra o Visual Studio Code**
+2. **Vá para a aba de Extensions** (ícone de quadrados no sidebar esquerdo)
+3. **Digite** `GitHub Copilot` na barra de busca
+4. **Encontre** a extensão oficial "GitHub Copilot" (pela GitHub)
+5. **Clique** em **Install**
+6. **Após a instalação**, clique no ícone do Copilot na barra de status (canto inferior direito)
+7. **Selecione** **Sign in to GitHub**
+8. **Copilot abrirá** uma janela de autenticação em seu navegador
+9. **Acesse** sua conta do GitHub
+10. **Copile** um plano:
+    
+    | Plano | Preço | Limites |
+    |-------|-------|----------|
+    | **Free** | Grátis | 2000 sugestões/mês, 50 perguntas chat/mês |
+    | **Pro** | $10/mês | Ilimitado, Copilot Workspace |
+    | **Pro+** | $20/mês | Tudo do Pro + modelos avançados |
+    | **Business** | $19/usuário/mês | Tudo do Pro + controle corporativo |
+    | **Enterprise** | Custom | Tudo do Business + suporte premium |
+
+11. **Retorne ao VS Code** - Copilot deve estar ativo (ícone do robô 🤖)
+
+**Via GitHub CLI:**
+
+```bash
+# Instale o GitHub CLI
+sudo apt install gh  # Ubuntu/Debian
+brew install gh     # macOS
+
+# Autentique com o GitHub
+gh auth login
+
+# Instale o Copilot
+gh copilot install
+
+# Verifique o status
+gh copilot status
+```
 
 ### Exercício 2: Usando Sugestões Inline (Inline Suggestions)
 
 **Em JavaScript:**
 
-1. Crie um novo arquivo `calculator.js`
-2. Digite o seguinte código:
+1. **Crie** um novo arquivo `calculator.js`
+2. **Digite** o seguinte código:
 
 ```javascript
 function add(a, b) {
-    // O Copilot sugerirá automaticamente:
+    // O Copilot sugerirá automaticamente (texto cinza):
     return a + b;
 }
-```
 
-3. Quando o Copilot sugerir código em cinza, pressione **Tab** para aceitar
-4. Continue digitando mais funções:
-
-```javascript
 function subtract(a, b) {
     return a - b;
 }
@@ -100,7 +294,19 @@ function divide(a, b) {
     }
     return a / b;
 }
+
+function calculateAverage(numbers) {
+    // Copilot sugerirá:
+    if (numbers.length === 0) {
+        return 0;
+    }
+    const sum = numbers.reduce((acc, num) => acc + num, 0);
+    return sum / numbers.length;
+}
 ```
+
+3. **Quando o Copilot sugerir** código em cinza, pressione **Tab** para aceitar
+4. **Continue digitando** mais funções
 
 **Em Python:**
 
@@ -111,66 +317,169 @@ def calculate_factorial(n):
         return 1
     else:
         return n * calculate_factorial(n - 1)
+
+def calculate_fibonacci(n):
+    # Copilot pode sugerir versão iterativa ou recursiva:
+    if n <= 1:
+        return n
+    
+    a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
+    
+    return b
+```
+
+**Em TypeScript:**
+
+```typescript
+interface User {
+    id: number;
+    name: string;
+    email: string;
+    createdAt: Date;
+}
+
+function createUser(userData: Omit<User, 'id' | 'createdAt'>): User {
+    const now = new Date();
+    const maxId = Math.max(...users.map(u => u.id), 0);
+    
+    return {
+        id: maxId + 1,
+        ...userData,
+        createdAt: now
+    };
+}
+
+function findUserByEmail(email: string): User | undefined {
+    return users.find(user => user.email === email);
+}
 ```
 
 ### Exercício 3: Ver Múltiplas Sugestões
 
-1. Comece a digitar uma função:
+1. **Comece a digitar** uma função:
 
 ```javascript
 function formatName(firstName, lastName) {
+    // Aguarde a sugestão cinza aparecer
+}
 ```
 
-2. Em vez de aceitar a primeira sugestão, pressione **Ctrl/Cmd + Enter**
-3. Copilot mostrará múltiplas sugestões (geralmente 3 opções)
-4. Use as setas **↑ ↓** (ou Ctrl/N) para navegar entre sugestões
-5. Pressione **Tab** para aceitar a sugestão desejada
+2. **Em vez de aceitar** a primeira sugestão, pressione **Ctrl/Cmd + Enter**
+3. **Copilot mostrará** múltiplas sugestões (geralmente 3 opções)
+
+**Exemplo de opções que podem aparecer:**
+
+```
+┌─────────────────────────────────────────────────────┐
+│  1) return `${firstName} ${lastName}`;          │
+│  2) return `${lastName}, ${firstName}`;         │
+│  3) return `${firstName[0]}. ${lastName}`;       │
+└─────────────────────────────────────────────────────┘
+```
+
+4. **Use as setas** ↑ ↓ (ou Ctrl/N) para navegar entre sugestões
+5. **Pressione Tab** para aceitar a sugestão desejada
+
+**Exemplo com contexto mais complexo:**
+
+```javascript
+function validateEmail(email) {
+    // Múltiplas opções que podem aparecer:
+    
+    // Opção 1: Validação simples
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+    
+    // Opção 2: Validação mais estrita
+    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return emailRegex.test(email);
+    
+    // Opção 3: Validação com try-catch
+    try {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    } catch (error) {
+        return false;
+    }
+}
+```
 
 ### Exercício 4: Usando o Copilot Chat
 
 **No VS Code:**
 
-1. Abra a aba **Copilot Chat** no sidebar esquerdo (ícone de robô)
-2. Clique no campo de texto na parte inferior do painel de chat
-3. Digite perguntas e pressione Enter:
+1. **Abra a aba Copilot Chat** no sidebar esquerdo (ícone de robô 🤖)
+2. **Clique** no campo de texto na parte inferior do painel de chat
+3. **Digite** perguntas e pressione Enter:
 
 ```text
-// Exemplo de perguntas:
+// Exemplos de perguntas:
 
 "Explicar este arquivo"
 "Como posso melhorar esta função?"
-"Gere uma função que valide emails"
+"Gere uma função que valide senhas fortes"
 "Escreva testes unitários para este código"
 "Qual é a complexidade deste algoritmo?"
+"Converta este código de Python para JavaScript"
+"Encontrar bugs neste código"
+"Adicionar documentação JSDoc a esta função"
+"Refatorar para usar async/await"
 ```
 
 **Com Contexto de Código:**
 
-1. Selecione algumas linhas de código no editor
-2. Abra o Copilot Chat
-3. Digite:
+1. **Selecione** algumas linhas de código no editor
+2. **Abra o Copilot Chat**
+3. **Digite**:
 
 ```text
 "Explicar as linhas selecionadas"
 "Adicionar comentários a estas linhas"
 "Refatorar este código para ser mais legível"
 "Encontrar bugs neste código"
+"Otimizar este código"
 ```
 
-4. Copilot fornecerá respostas específicas sobre o código selecionado
+4. **Copilot fornecerá** respostas específicas sobre o código selecionado
+
+**Exemplos práticos:**
+
+```javascript
+// Código selecionado:
+function calculateTax(price, taxRate) {
+    return price * taxRate;
+}
+
+// Pergunta: "Explicar esta função"
+// Resposta do Copilot:
+/*
+Esta função calcula o imposto sobre um preço base.
+
+Parâmetros:
+- price: O preço base antes do imposto
+- taxRate: A alíquota de imposto (ex: 0.1 para 10%)
+
+Retorna:
+- O valor do imposto a ser pago
+
+Exemplo:
+calculateTax(100, 0.1) // Retorna 10.0
+*/
+```
 
 ### Exercício 5: Gerando Código com Prompt Descritivo
 
 **Gerar Função:**
 
-1. Abra o Copilot Chat
-2. Digite:
+1. **Abra o Copilot Chat**
+2. **Digite**:
 
 ```text
-"Gere uma função em Python que calcule a distância entre dois pontos em 3D"
+"Gere uma função em Python que calcule a distância euclidiana entre dois pontos em 3D"
 ```
 
-3. Copilot gerará:
+3. **Copilot gerará:**
 
 ```python
 import math
@@ -184,78 +493,244 @@ def calculate_distance_3d(point1, point2):
         point2: Tuple (x, y, z) para o segundo ponto
     
     Returns:
-        float: Distância entre os dois pontos
+        float: Distância entre os dois pontos em unidades
+    
+    Exemplo:
+        >>> calculate_distance_3d((1, 2, 3), (4, 5, 6))
+        5.196152422706632
     """
     x1, y1, z1 = point1
     x2, y2, z2 = point2
     
-    distance = math.sqrt((x2 - x1)**2 + (y2 - y1)**2 + (z2 - z1)**2)
+    # Calcular diferenças em cada dimensão
+    dx = x2 - x1
+    dy = y2 - y1
+    dz = z2 - z1
+    
+    # Calcular distância euclidiana
+    distance = math.sqrt(dx**2 + dy**2 + dz**2)
+    
     return distance
 ```
 
-4. Clique em **Insert at Cursor** para adicionar ao seu arquivo
+4. **Clique em "Insert at Cursor"** para adicionar ao seu arquivo
 
 **Gerar API Endpoint:**
 
 ```text
-"Gere um endpoint REST em Express.js que cria um usuário"
+"Gere um endpoint REST em Express.js que cria um usuário com validação"
 ```
 
-Copilot gerará:
+**Copilot gerará:**
 
 ```javascript
 const express = require('express');
+const { body, validationResult } = require('express-validator');
+
 const router = express.Router();
 
+// Middleware de validação
+const validateUser = [
+    body('name').notEmpty().withMessage('Nome é obrigatório'),
+    body('email').isEmail().withMessage('Email inválido'),
+    body('password').isLength({ min: 8 }).withMessage('Senha deve ter no mínimo 8 caractares'),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next();
+    }
+];
+
 // POST /api/users - Criar um novo usuário
-router.post('/users', (req, res) => {
-    const { name, email, password } = req.body;
-    
-    // Validação básica
-    if (!name || !email || !password) {
-        return res.status(400).json({ 
-            error: 'Todos os campos são obrigatórios' 
+router.post('/users', validateUser, async (req, res) => {
+    try {
+        const { name, email, password } = req.body;
+        
+        // Verificar se usuário já existe
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(409).json({ 
+                error: 'Usuário já existe com este email' 
+            });
+        }
+        
+        // Hashar senha (NUNCA armazene senhas em texto pleno!)
+        const hashedPassword = await bcrypt.hash(password, 10);
+        
+        // Criar usuário
+        const newUser = new User({
+            name,
+            email,
+            password: hashedPassword,
+            createdAt: new Date()
+        });
+        
+        // Salvar no banco de dados
+        await newUser.save();
+        
+        // Retornar resposta (sem a senha!)
+        res.status(201).json({
+            message: 'Usuário criado com sucesso',
+            user: {
+                id: newUser._id,
+                name: newUser.name,
+                email: newUser.email,
+                createdAt: newUser.createdAt
+            }
+        });
+        
+    } catch (error) {
+        console.error('Erro ao criar usuário:', error);
+        res.status(500).json({ 
+            error: 'Erro interno do servidor' 
         });
     }
-    
-    // Criar usuário (exemplo com banco de dados)
-    const newUser = {
-        id: Date.now(),
-        name,
-        email,
-        password: hash(password), // Sempre hashear senhas!
-        createdAt: new Date()
-    };
-    
-    // Salvar no banco de dados
-    // ...
-    
-    res.status(201).json({
-        message: 'Usuário criado com sucesso',
-        user: { id: newUser.id, name: newUser.name, email: newUser.email }
-    });
 });
 
 module.exports = router;
+```
+
+**Gerar Testes:**
+
+```text
+"Escreva testes unitários usando Jest para a função calculateDistance_3d"
+```
+
+**Copilot gerará:**
+
+```javascript
+const { calculateDistance_3d } = require('./distance');
+
+describe('calculateDistance_3d', () => {
+    test('deve calcular distância entre dois pontos iguais', () => {
+        const point1 = [1, 2, 3];
+        const point2 = [1, 2, 3];
+        const distance = calculateDistance_3d(point1, point2);
+        
+        expect(distance).toBe(0);
+    });
+    
+    test('deve calcular distância corretamente', () => {
+        const point1 = [0, 0, 0];
+        const point2 = [3, 4, 0];
+        const distance = calculateDistance_3d(point1, point2);
+        
+        // Distância = √((3-0)² + (4-0)² + (0-0)²) = √(9+16) = √25 = 5
+        expect(distance).toBe(5);
+    });
+    
+    test('deve calcular distância em 3D', () => {
+        const point1 = [1, 2, 3];
+        const point2 = [4, 5, 6];
+        const distance = calculateDistance_3d(point1, point2);
+        
+        // Distância = √((4-1)² + (5-2)² + (6-3)²) = √(9+9+9) = √27 ≈ 5.196
+        expect(distance).toBeCloseTo(5.196, 0.001);
+    });
+    
+    test('deve lançar erro para pontos inválidos', () => {
+        const point1 = [1, 2]; // Faltando coordenda z
+        const point2 = [4, 5, 6];
+        
+        expect(() => {
+            calculateDistance_3d(point1, point2);
+        }).toThrow();
+    });
+});
 ```
 
 ### Exercício 6: Desativando e Configurando Copilot
 
 **Desativar Temporariamente:**
 
-1. No VS Code, pressione **Ctrl/Cmd + Shift + P** para abrir a Command Palette
-2. Digite `GitHub Copilot: Disable`
-3. Selecione a opção para desativar Copilot
-4. Para reativar, use `GitHub Copilot: Enable`
+1. **No VS Code**, pressione **Ctrl/Cmd + Shift + P** para abrir a Command Palette
+2. **Digite** `GitHub Copilot: Disable`
+3. **Selecione** a opção para desativar Copilot
+4. **Para reativar**, use `GitHub Copilot: Enable`
 
 **Atalhos de Teclado Personalizados:**
 
-1. Abra **File** → **Preferences** → **Keyboard Shortcuts**
-2. Busque por "copilot"
-3. Você pode personalizar atalhos como:
-   - `GitHub Copilot: Trigger Copilot` (geralmente Ctrl/Cmd + Enter)
-   - `GitHub Copilot: Accept Suggestion` (Tab)
-   - `GitHub Copilot: Reject Suggestion` (Esc)
+1. **Abra** File → Preferences → Keyboard Shortcuts
+2. **Busque por** "copilot"
+3. **Você pode personalizar** atalhos como:
+   
+   | Atalho Padrão | Sua Personalização |
+   |---------------|---------------------|
+   | `GitHub Copilot: Trigger Copilot` | `Ctrl/Cmd + Enter` |
+   | `GitHub Copilot: Accept Suggestion` | `Tab` |
+   | `GitHub Copilot: Reject Suggestion` | `Esc` |
+   | `GitHub Copilot: Previous Suggestion` | `Alt + [` |
+   | `GitHub Copilot: Next Suggestion` | `Alt + ]` |
+
+**Configurações Avançadas:**
+
+1. **Abra** Settings (ícone de engrenagem ⚙️)
+2. **Busque por** "copilot" nas configurações
+3. **Configurações disponíveis:**
+   
+   - **GitHub Copilot: Autocomplete** - Ativar/desativar
+   - **GitHub Copilot: Inline Suggest: Show** - Quando mostrar sugestões
+   - **GitHub Copilot: Inline Suggest: Delay** - Atraso antes de mostrar (ms)
+   - **GitHub Copilot: Copilot Chat: Code Context** - Número de arquivos de contexto
+
+### Exercício 7: Copilot em Outras IDEs
+
+**Visual Studio:**
+
+1. **Instale** a extensão do GitHub Copilot (via Marketplace)
+2. **Abra** Visual Studio
+3. **Selecione** Extensions → Manage Extensions
+4. **Busque** por "GitHub Copilot"
+5. **Clique** em Download
+6. **Reinicie** o Visual Studio
+
+**JetBrains IDEs (IntelliJ, PyCharm, WebStorm):**
+
+1. **Abra** File → Settings (ou Ctrl+Alt+S)
+2. **Navegue** até Plugins
+3. **Busque** por "GitHub Copilot"
+4. **Clique** em Install
+5. **Reinicie** o IDE
+6. **Autentique** com sua conta do GitHub
+
+**Vim / Neovim:**
+
+```bash
+# Instalar o plugin
+vim-plug 'github/copilot.vim'
+
+# Instalar via Vim-Plug
+Plug 'github/copilot.vim'
+
+# Instalar via dein.vim
+call dein#add('github/copilot.vim')
+
+# Depois da instalação:
+:Copilot setup
+```
+
+### Exercício 8: Copilot no Terminal (CLI)
+
+```bash
+# Instale o GitHub Copilot CLI
+gh extension install github/gh-copilot
+
+# Verifique a instalação
+gh copilot --version
+
+# Sugestões de comandos
+gh copilot suggest "Como criar um branch no Git"
+gh copilot suggest "Como listar todos os arquivos JS"
+
+# Explicar comandos
+gh copilot explain "git push origin main"
+gh copilot explain "docker run -d -p 8080:80 nginx"
+
+# Testar código (requer código no clipboard)
+gh copilot test "Esta função tem bugs?"
+```
 
 ---
 
@@ -340,8 +815,9 @@ D) Copilot Lite
 **Planos disponíveis:**
 - Copilot Free (grátis)
 - Copilot Pro (individual, $10/mês)
+- Copilot Pro+ (individual, $20/mês)
 - Copilot Business (empresarial, $19/usuário/mês)
-- Copilot Enterprise (empresarial, recursos avançados)
+- Copilot Enterprise (empresarial, custom)
 </details>
 
 ---
@@ -451,7 +927,7 @@ D) Todas as alternativas anteriores
 
 ---
 
-## 🔥 Dicas para o Exame
+## 🔥 Dicas de Ouro para o Exame
 
 1. **Memorize os atalhos padrão:**
    - **Tab** → Aceitar sugestão
@@ -480,15 +956,31 @@ D) Todas as alternativas anteriores
    - Java
    - C#
    - Go
+   - Ruby
 
-## 📚 Recursos Adicionais
+## 📚 Recursos de Estudo
 
-- [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
-- [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/get-started/quickstart)
-- [Plans for GitHub Copilot](https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot)
-- [Prompt Engineering for Copilot](https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
-- [VS Code Copilot Documentation](https://code.visualstudio.com/docs/copilot/)
+### Documentação Oficial
+- [GitHub Copilot Documentation](https://docs.github.com/en/copilot) - Documentação completa
+- [Quickstart for GitHub Copilot](https://docs.github.com/en/copilot/get-started/quickstart) - Guia rápido
+- [Plans for GitHub Copilot](https://docs.github.com/en/copilot/about-github-copilot/subscription-plans-for-github-copilot) - Planos e preços
+
+### Cursos
+- [GitHub Skills: Copilot](https://skills.github.com/courses/copilot) - Curso interativo
+- [Prompt Engineering for Copilot](https://docs.github.com/en/copilot/using-github-copilot/prompt-engineering-for-github-copilot) - Como escrever prompts efetivos
+
+### IDE-Specific
+- [VS Code Copilot](https://code.visualstudio.com/docs/copilot/) - Integração com VS Code
+- [Copilot for JetBrains](https://plugins.jetbrains.com/plugin/17718-github-copilot) - Plugin para IntelliJ, PyCharm, etc.
+
+### Vídeos
+- [GitHub Copilot Overview](https://www.youtube.com/watch?v=sz46kaXp2sM) - Visão geral
+- [Copilot in 10 Minutes](https://www.youtube.com/watch?v=Q6q5a4ZxZs) - Em 10 minutos
+
+### Blogs e Artigos
+- [Inside Copilot](https://github.blog/category/copilot/) - Blog oficial do GitHub Copilot
+- [Copilot Research](https://github.github.com/copilot-research/) - Pesquisas sobre Copilot
 
 ---
 
-Pratique usar o Copilot com seu código real e você entenderá rapidamente como ele funciona! 🤖✨
+**Resumo Final:** GitHub Copilot é um assistente de IA poderoso que acelera o desenvolvimento. Para o exame GH-900, domine as funcionalidades principais (inline suggestions, Copilot Chat, planos de subscrição) e entenda como ele funciona com contexto de código. Pratique bastante com seu código real e você verá a diferença! 🤖✨🚀
