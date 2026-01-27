@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "livros/programador-pragmático/capitulo-01-o-pragmatico.md",
+                "file": "certificados/gh-900/parte-1/01-introduction-to-git.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "capitulo-01-o-pragmatico"
+              "title": "01-introduction-to-git"
             }
           }
         ]
@@ -174,9 +174,9 @@
   },
   "active": "2e964d6b43de7c40",
   "lastOpenFiles": [
+    "livros/programador-pragmático/capitulo-01-o-pragmatico.md",
     "livros/programador-pragmático/00-index.md",
     "livros/programador-pragmático/capitulo-02-manejando-grep.md",
-    "livros/programador-pragmático/capitulo-01-o-pragmatico.md",
     "livros/00-index.md",
     "Curso.dev/Aula 06.md",
     "comunicacao-efetiva.md",
