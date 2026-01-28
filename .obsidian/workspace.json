@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "livros/programador-pragmático/capitulo-02-manejando-grep.md",
+                "file": "livros/programador-pragmático/00-index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "capitulo-02-manejando-grep"
+              "title": "00-index"
             }
           }
         ]
@@ -174,13 +174,14 @@
   },
   "active": "2e964d6b43de7c40",
   "lastOpenFiles": [
+    "certificados/gh-900/parte-1/03-introduction-to-github-copilot.md",
+    "certificados/gh-900/parte-1/01-introduction-to-git.md",
+    "certificados/gh-900/parte-1/02-introduction-to-github.md",
+    "livros/programador-pragmático/capitulo-02-manejando-grep.md",
+    "TOOLS.md",
     "livros/programador-pragmático/capitulo-01-o-pragmatico.md",
     "livros/programador-pragmático/00-index.md",
     "livros/00-index.md",
-    "certificados/gh-900/parte-1/03-introduction-to-github-copilot.md",
-    "certificados/gh-900/parte-1/02-introduction-to-github.md",
-    "certificados/gh-900/parte-1/01-introduction-to-git.md",
-    "livros/programador-pragmático/capitulo-02-manejando-grep.md",
     "Curso.dev/Aula 06.md",
     "comunicacao-efetiva.md",
     "teste.md",
